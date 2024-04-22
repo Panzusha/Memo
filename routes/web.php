@@ -26,7 +26,13 @@ Route::middleware('admin')->group(function () {
 });
 
 // routes sans middlewares
+
 // route index, le premier 'index' est le nom de la fonction dans NoteController.php
 Route::get('/', [NoteController::class, 'index'])->name('index');
-
-
+// route pour affichage individuel d'une note
+// route model binding : {note} correspond a $note dans la fonction show de NoteController.php
+Route::get('/{note}', [NoteController::class, 'show'])->name('notes.show');
+// route pour le filtrage des posts par categories
+Route::get('/categories/{category}', [NoteController::class, 'notesByCategory'])->name('notes.byCategory');
+// route pour le filtrage des posts par tags
+Route::get('/tags/{tag}', [NoteController::class, 'notesByTag'])->name('notes.byTag');

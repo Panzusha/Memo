@@ -15,6 +15,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
+            // On crée categ et tags avant pour ensuite les assigner aux notes
+            CategorySeeder::class,
+            TagSeeder::class,
             NoteSeeder::class,
         ]);
     }

@@ -1,0 +1,18 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* pour la gestion des éléments cachés avant que le script TailWind soit activé */
+[x-cloak] { 
+    display: none !important;
+}
+
+header {
+    background: linear-gradient( to bottom right, #5761B2, #1FC5A8);
+}
+
+
+
+footer {
+    background: linear-gradient( to bottom right, #5761B2, #1FC5A8);
+}

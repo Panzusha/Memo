@@ -17,7 +17,7 @@ class NoteFactory extends Factory
      */
     public function definition(): array
     {
-        $title = fake()->unique()->sentence;
+        $title = fake()->unique()->words(1, true);
         // par défaut 3 paragraphes,
         $content = fake()->paragraphs(1, asText: true);
         // date aléatoire entre ajd et il y a un an

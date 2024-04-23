@@ -27,7 +27,7 @@ class UserFactory extends Factory
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
-            // si un mdp existe on l'utilise, sinon un sera fabriqué (et hashé)
+            // si un mdp existe on l'utilise (password), sinon un sera fabriqué (et hashé)
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
         ];

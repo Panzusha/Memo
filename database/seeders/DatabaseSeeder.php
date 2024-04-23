@@ -14,6 +14,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // on crée 20 utilisateurs lors du seeding
+        User::factory(20)->create();
+
         $this->call([
             // On crée categ et tags avant pour ensuite les assigner aux notes
             CategorySeeder::class,

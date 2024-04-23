@@ -1,5 +1,6 @@
+{{-- Contient le composant note, utilisé sur page acceuil et page note individuelle --}}
 {{-- composant blade 'layout' contient head, header, boutons nav et footer --}}
-<x-layout>
+<x-default-layout>
     {{-- début recherche --}}
     <div class="flex justify-center items-center my-6">
         <form action="{{ route('index') }}" class="pb-3 pr-2 flex items-center border-b border-b-slate-300 text-slate-300 focus-within:border-b-slate-900 focus-within:text-slate-900 transition">
@@ -25,4 +26,4 @@
         {{-- pagination --}}
         {{ $notes->links() }}
     </div>
-</x-layout>
+</x-default-layout>

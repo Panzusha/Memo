@@ -12,12 +12,20 @@ use Illuminate\Support\Facades\Route;
 
 // middleware guest pour les droits d'accès aux pages d'inscription/connexion (statut guest)
 Route::middleware('guest')->group(function () {
-
+    // route formulaire inscription
+    Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+    // route inscription nouveau membre
+    Route::post('/register', [RegisterController::class, 'register']);
+    // route formulaire connexion
+    Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+    // route connexion membre
+    Route::post('/login', [LoginController::class, 'login']);
 });
 
 // middleware pour droit d'accès au compte utilisateur (statut auth)
 Route::middleware('auth')->group(function () {
-
+    // route compte utilisateur (home est une valeur laravel par défaut)
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
 
 // middleware pour droit d'accès admin
@@ -30,7 +38,7 @@ Route::middleware('admin')->group(function () {
 // route index, le premier 'index' est le nom de la fonction dans NoteController.php
 Route::get('/', [NoteController::class, 'index'])->name('index');
 // route pour affichage individuel d'une note
-// route model binding : {note} correspond a $note dans la fonction show de NoteController.php
+    // route model binding : {note} correspond a $note dans la fonction show de NoteController.php
 Route::get('/{note}', [NoteController::class, 'show'])->name('notes.show');
 // route pour le filtrage des posts par categories
 Route::get('/categories/{category}', [NoteController::class, 'notesByCategory'])->name('notes.byCategory');

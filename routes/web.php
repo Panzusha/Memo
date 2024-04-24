@@ -1,11 +1,9 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NoteController;
-use App\Models\Note;
 use Illuminate\Support\Facades\Route;
 
 // le nom des 2e paramètres de tableau est celui des fonctions dans les controllers correspondants
@@ -26,6 +24,8 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     // route compte utilisateur (home est une valeur laravel par défaut)
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    // route déconnexion
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 
 // middleware pour droit d'accès admin

@@ -43,4 +43,16 @@ class LoginController extends Controller
             // onlyinput, on renvoie la valeur du champ email mais on devra retaper le mdp
         ])->onlyInput('email');
     }
+
+    public function logout(Request $request): RedirectResponse
+    {
+        // suppression des infos de session qui authentifient l'utilisateur
+        Auth::logout();
+        // suppression id session et contenu lié
+        $request->session()->invalidate();
+        // renouvellement token
+        $request->session()->regenerateToken();
+        // redirection page accueil
+        return redirect('/');
+    }
 }

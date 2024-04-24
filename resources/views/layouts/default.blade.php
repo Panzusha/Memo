@@ -1,4 +1,4 @@
-{{-- Template de page, head header boutons nav et footer --}}
+{{-- Template de page principale, head header boutons nav et footer --}}
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -26,42 +26,42 @@
             {{-- @guest @else  affichage dynamique des boutons nav selon le statut de l'utilisateur --}}
             @guest
             <a href="{{ route('register') }}">
-            <button type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
-                <i class="fa-solid fa-pen-to-square w-3 h-3 me-2"></i>
-                Inscription
-            </button>
+                <button type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
+                    <i class="fa-solid fa-pen-to-square w-3 h-3 me-2"></i>
+                    Inscription
+                </button>
             </a>
             <a href="{{ route('login') }}">
-            <button type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-gray-900 hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
-                <i class="fa-solid fa-diagram-project w-3 h-3 me-2"></i>
-                Connexion
-            </button>
+                <button type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-gray-900 hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
+                    <i class="fa-solid fa-diagram-project w-3 h-3 me-2"></i>
+                    Connexion
+                </button>
             </a>
             @else
-            <a href="{{ route('home') }}">
+                <a href="{{ route('home') }}">
                 <button type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
                     <i class="fa-solid fa-pen-to-square w-3 h-3 me-2"></i>
                     Mon compte
                 </button>
-                </a>
-                {{-- @click.prevent event listener alpinejs pour modifier le comportement du lien --}}
-                {{-- logout fait référence au x-ref du formulaire juste en dessous --}}
-                <a href="" @click.prevent="$refs.logout">
+            </a>
+            {{-- @click.prevent event listener alpinejs pour modifier le comportement du lien --}}
+            {{-- logout fait référence au x-ref du formulaire juste en dessous --}}
+            <a href="{{ route('logout') }}" @click.prevent="$refs.logout.submit()">
                 <button type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-gray-900 hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
                     <i class="fa-solid fa-diagram-project w-3 h-3 me-2"></i>
                     Déconnexion
                 </button>
-                </a>
-                {{-- formulaire caché pour gérer la déco sans utiliser http get (protection csrf) --}}
-                <form x-ref="logout" action="" method="POST" class="hidden">
-                    @csrf
-                </form>
+            </a>
+            {{-- formulaire caché pour gérer la déco sans utiliser http get (protection csrf) --}}
+            <form x-ref="logout" action="{{ route('logout') }}" method="POST" class="hidden">
+                @csrf
+            </form>
             @endguest
             <a href="{{ route('register') }}">
-            <button type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-e-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
-                <i class="fa-solid fa-user-tie w-3 h-3 me-2"></i>
-                Admin
-            </button>
+                <button type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-e-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
+                    <i class="fa-solid fa-user-tie w-3 h-3 me-2"></i>
+                    Admin
+                </button>
             </a>
         </div>
         {{-- fin boutons --}}

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Enums\Role;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -42,6 +44,14 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            // pour ne pas avoir a préciser le "->value" de Role::Admin->value dans la fonction isAdmin
+            'role' => Role::class,
         ];
+    }
+
+    public function isAdmin(): bool
+    {
+        // vérification role admin en utilisant la valeur du case Admin de l'enum Role
+        return $this->role === Role::Admin;
     }
 }

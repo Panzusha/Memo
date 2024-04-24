@@ -160,6 +160,7 @@ return [
         'birthday'                 => 'anniversaire',
         'body'                     => 'corps',
         'city'                     => 'ville',
+        'comment'                  => 'commentaire',
         'compilation'              => 'compilation',
         'concept'                  => 'concept',
         'conditions'               => 'conditions',

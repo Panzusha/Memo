@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
@@ -26,11 +27,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     // route déconnexion
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    // route postage de commentaire
+    Route::post('/{note}/comment', [NoteController::class, 'comment'])->name('notes.comment');
+    // route changement de mdp
+    Route::patch('/home', [HomeController::class, 'updatePassword']);
 });
 
 // middleware pour droit d'accès admin
 Route::middleware('admin')->group(function () {
-
+    // route administration des posts / 'except show' car on l'utilise déjà ailleurs
+    // names au pluriel car il y aura plusieurs noms pour les routes générées
+    Route::resource('/admin/notes', AdminController::class)->except('show')->names('admin.notes');
 });
 
 // routes sans middlewares

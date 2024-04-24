@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Note;
 use App\Models\Tag;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class NoteController extends Controller
@@ -86,5 +89,30 @@ class NoteController extends Controller
         return view('notes.show', [
             'note' => $note,
         ]);
+    }
+
+    public function comment(Note $note, Request $request): RedirectResponse
+    {
+        // validation du champ commentaire
+        $validated = $request->validate([
+            'comment' => ['required', 'string', 'between:2,255'],
+        ]);
+
+        // façon par défaut de créer une nouvelle entrée dans une table (sans le mass assignment qui est désactivé par défaut)
+        // $comment = new Comment();
+        // $comment->content = $validated['comment'];
+        // $comment->post_id = $post->id;
+        // $comment->user_id = Auth::id();
+        // $comment->save;
+
+        //façon laravel
+        Comment::create([
+            'content' => $validated['comment'],
+            'note_id' => $note->id,
+            'user_id' => Auth::id(),
+        ]);
+
+        // return back() renvoie a la derniere page, session flash withStatus réfère a @if (session('status')) de default.blade.php
+        return back()->withStatus('Commentaire publié !');
     }
 }

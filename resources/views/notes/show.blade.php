@@ -14,7 +14,7 @@
                 focus:outline-indigo-500" type="text" name="comment" placeholder="Commentez" 
                 autocomplete="off">
                 <button class="ml-2 w-12 flex justify-center items-center shrink-0 bg-teal-400 rounded-full text-indigo-50">
-                    <i class="fa-solid fa-feather-pointed"></i>
+                    <img width="30" height="30" src="https://img.icons8.com/ios/50/pen.png" alt="pen"/>
                 </button>
             </div>
             @error('comment')

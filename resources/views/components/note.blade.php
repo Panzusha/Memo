@@ -21,9 +21,9 @@
         {{-- si note sur page index on affiche le lien "lire" sinon la date de création --}}
         @if ($list)
         {{-- route dynamique pour aller vers la note cliquée --}}
-        <a href="{{ route('notes.show', ['note' => $note]) }}" class="w-8/12 py-4 px-6 font-semibold bg-indigo-500 transition text-slate-50 rounded-full">
-            <i class="fa-solid fa-glasses w-3 h-3 me-6"></i>
-            Lire la note
+        <a href="{{ route('notes.show', ['note' => $note]) }}" class="flex items-center w-8/12 py-2 px-4 font-semibold bg-indigo-500 transition text-slate-50 rounded-full">
+            <img class="me-4" width="30" height="30" src="https://img.icons8.com/pastel-glyph/64/glasses.png" alt="glasses"/>
+            <p>Lire la note</p>
         </a>
         @else
         {{-- format pour modifier l'affichage de la date selon un standard européen --}}

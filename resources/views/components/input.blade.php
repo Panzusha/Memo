@@ -12,8 +12,8 @@
             @class([
                 // on fait le tri dans les classes tailwind entre celles qui concernent les champs état normal et celles des erreurs
                 'form-input block w-full rounded-md border-0 py-1.5 ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6',
-                'pr-10 text-red-900 ring-red-300 placeholder:text-red-300 focus:ring-red-500'
                 // si élément en erreur
+                'pr-10 text-red-900 ring-red-300 placeholder:text-red-300 focus:ring-red-500'
                 => $errors->has($name),
                 // si élément sans erreurs
                 'text-gray-900 shadow-sm ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600' 

@@ -13,6 +13,10 @@ class Note extends Model
 {
     use HasFactory;
 
+    // $fillable indique les champs qui doivent subir le mass assignment
+    // $guarded indique ceux qui doivent être protégés du mass assignment
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+
     // regroupe les queries pour optimiser la consommation de données du site (voir foreachs sur note.blade.php)
     // eager loading
     protected $with = [
@@ -55,6 +59,12 @@ class Note extends Model
                 'tags', 'tags.id', $filters['tag']->id ?? $filters['tag']
             );
         }
+    }
+
+    // pour déterminer dans le formulaire si on crée ou modfifie une note
+    public function exists(): bool
+    {
+        return (bool) $this->id;
     }
 
     // relation note - categorie, une note appartient a une categorie

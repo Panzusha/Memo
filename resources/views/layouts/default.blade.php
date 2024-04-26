@@ -14,7 +14,7 @@
         <div class="container mx-auto px-8 flex items-center justify-between">
             {{-- bouton maison retour page accueil --}}
             <a href="{{ route('index') }}" id="maison">
-                <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/home.png" alt="home"/>
+                <img class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12" src="https://img.icons8.com/ios-filled/50/home.png" alt="home"/>
             </a>
             <h1 class="sm:text-2xl md:text-2xl lg:text-4xl xl:text-6xl font-light tracking-wider text-white">MEMO</h1>
             <h1></h1>
@@ -41,7 +41,7 @@
                 <a href="{{ route('home') }}">
                 <button type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
                     <img class="me-2" width="20" height="20" src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1"/>
-                    Mon compte
+                    Compte
                 </button>
             </a>
             {{-- @click.prevent event listener alpinejs pour modifier le comportement du lien --}}
@@ -102,15 +102,3 @@
     {{-- fin footer --}}
 </body>
 </html>
-
-{{-- Version optionnelle bouton admin --}}
-
-            {{-- <button type="button" 
-                @class([
-                    'inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-e-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700',
-                    'hidden' => Auth::guest(),
-                ])
-            >
-                <i class="fa-solid fa-user-tie w-3 h-3 me-2"></i>
-                Admin
-            </button> --}}

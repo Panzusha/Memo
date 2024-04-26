@@ -2,8 +2,8 @@
 {{-- @props permet de recup les propriétés et leurs valeurs sur des composants anonymes --}}
 @props(['note', 'list' => false])
 
-<article class="w-1/4 mx-2 flex flex-col py-4 my-2 bg-gray-100 border-black border-2 rounded-2xl">
-    <div class="flex flex-col mt-5 space-y-5 lg:w-7/12 lg:mt-0 lg:ml-12">
+<article class="w-11/12 sm:w-9/12 md:w-7/12 lg:w-6/12 xl:w-5/12 2xl:w-1/4 px-2 mx-2 flex flex-col py-4 my-2 bg-gray-100 border-black border-2 rounded-2xl">
+    <div class="flex flex-col space-y-2 lg:ml-10">
         <h1 class="font-bold text-slate-900 text-3xl lg:text-5xl leading-tight">{{ $note->title }}</h1>
         {{-- affichage de la categorie si la note en possède une --}}
         @if ($note->category)
@@ -21,7 +21,7 @@
         {{-- si note sur page index on affiche le lien "lire" sinon la date de création --}}
         @if ($list)
         {{-- route dynamique pour aller vers la note cliquée --}}
-        <a href="{{ route('notes.show', ['note' => $note]) }}" class="flex items-center w-8/12 py-2 px-4 font-semibold bg-indigo-500 transition text-slate-50 rounded-full">
+        <a href="{{ route('notes.show', ['note' => $note]) }}" class="flex items-center w-40 h-12 py-2 px-4 font-semibold bg-indigo-500 transition text-slate-50 rounded-full">
             <img class="me-4" width="30" height="30" src="https://img.icons8.com/pastel-glyph/64/glasses.png" alt="glasses"/>
             <p>Lire la note</p>
         </a>

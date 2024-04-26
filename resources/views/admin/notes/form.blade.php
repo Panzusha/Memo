@@ -8,7 +8,7 @@
         @method('PATCH')
         @endif
         <div class="flex flex-col items-center justify-center space-y-4">
-            <div class="w-1/3 pb-10">
+            <div class="w-11/12 sm:w-10/12 md:w-9/12 lg:w-8/12 xl:w-6/12 2xl:w-5/12 pb-4">
                 <h1 class="text-base font-semibold leading-7 text-gray-900">
                     {{ $note->exists() ? 'Modifier une note' : 'Créer une note' }}</h1>
                 <div class="mt-10 space-y-4">

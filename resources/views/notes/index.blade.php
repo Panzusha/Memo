@@ -13,7 +13,7 @@
         </form>
     </div>
     {{-- fin recherche --}}
-    <div class=" flex flex-wrap justify-evenly">
+    <div class="flex flex-wrap justify-evenly">
         {{-- Début note --}}
         {{-- itération dans la table BDD notes pour toutes les afficher --}}
         @forelse ($notes as $note)
@@ -23,7 +23,9 @@
         <p class="text-slate-400 text-center">Aucun résultat.</p>
         @endforelse
         {{-- Fin note --}}
-        {{-- pagination --}}
-        {{ $notes->links() }}
+    </div>
+    <div class="flex flex-wrap justify-evenly">
+    {{-- pagination --}}
+    {{ $notes->links() }}
     </div>
 </x-default-layout>

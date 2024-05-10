@@ -33,7 +33,8 @@
                         {{-- nom de l'utilisateur qui a posté le commentaire --}}
                         <h2 class="font-bold text-slate-900 text-2xl">{{ $comment->user->name }}</h2>
                         {{-- date de création --}}
-                        <time class="mt-2 sm:mt-0 sm:ml-4 text-xs text-slate-400" datetime="{{ $comment->created_at }}">@datetime($comment->created_at)</time>
+                        <time class="mt-2 sm:mt-0 sm:ml-4 text-xs text-slate-400" datetime="{{ $comment->created_at }}">
+                            @datetime($comment->created_at)</time>
                     </div>
                     {{-- contenu du commentaire --}}
                     <p class="mt-4 text-slate-800 sm:leading-loose">{{ $comment->content }}</p>

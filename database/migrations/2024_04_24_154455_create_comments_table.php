@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->string('content');
-            // suppression en cascade, si on supprime une note, les commentaires attachés le seont aussi
+            // suppression en cascade, si on supprime une note, les commentaires attachés le seront aussi
             $table->foreignId('note_id')->constrained()->cascadeOnDelete();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            // timestamps = created_at et updated_at
             $table->timestamps();
         });
     }

@@ -14,8 +14,10 @@ return new class extends Migration
         // création table pivot pour gérer la relation many to many entre notes et tags
         Schema::create('note_tag', function (Blueprint $table) {
             $table->id();
+            // suppression en cascade, si on supprime une note, les commentaires attachés le seont aussi
             $table->foreignId('note_id')->constrained()->cascadeOnDelete();
             $table->foreignId('tag_id')->constrained()->cascadeOnDelete();
+            // timestamps = created_at et updated_at
             $table->timestamps();
         });
     }

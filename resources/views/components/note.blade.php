@@ -34,7 +34,8 @@
         @if ($note->tags->isNotEmpty())
         <ul class="flex flex-wrap gap-2">
             @foreach ($note->tags as $tag)
-            <li><a href="{{ route('notes.byTag', ['tag' => $tag]) }}" class="px-3 py-1 bg-green-500 text-indigo-50 rounded-full text-sm">{{ $tag->name }}</a></li>
+            <li><a href="{{ route('notes.byTag', ['tag' => $tag]) }}" class="px-3 py-1 bg-green-500 text-indigo-50 rounded-full text-sm"
+                >{{ $tag->name }}</a></li>
             @endforeach
         </ul>
         @endif
